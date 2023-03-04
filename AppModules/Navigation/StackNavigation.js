@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from '../Screens/AuthScreen/LoginScreen';
 import OTPScreen from '../Screens/AuthScreen/OTPScreen';
@@ -9,6 +9,9 @@ import ExpenseScreen from '../Screens/MainScreen/ExpenseScreen';
 import SettingsScreen from '../Screens/MainScreen/SettingsScreen';
 import ReportScreen from '../Screens/MainScreen/ReportScreen';
 import {useSelector} from 'react-redux';
+import {adaptNavigationTheme} from 'react-native-paper';
+
+const {LightTheme} = adaptNavigationTheme({reactNavigationLight: DefaultTheme});
 
 const Stack = createNativeStackNavigator();
 
@@ -36,7 +39,7 @@ const HomeTabStack = () => {
 const Navigation = () => {
   const userLoggedIn = useSelector(state => state?.isUserLoggedIn);
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={LightTheme}>
       {!userLoggedIn ? <LoginStack /> : <HomeTabStack />}
     </NavigationContainer>
   );

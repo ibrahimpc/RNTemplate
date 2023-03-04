@@ -19,10 +19,7 @@ const OTPScreen = ({navigation}) => {
   return (
     <SafeAreaView style={authStyles.safeAreaContainer}>
       <KeyboardAvoidingView style={authStyles.mainContainer} behavior="height">
-        <TextInput
-          style={authStyles.textInput}
-          placeholder={'Enter Your Mobile Number'}
-        />
+        <TextInput style={authStyles.textInput} placeholder={'Enter OTP'} />
         <TouchableOpacity
           onPress={handleVerifyOtp}
           style={authStyles.submitButton}>

@@ -6,15 +6,14 @@ import {
   KeyboardAvoidingView,
   SafeAreaView,
 } from 'react-native';
-import {getSampleData, isUserLoggedIn} from '../../Redux/Actions';
-import {useDispatch, useSelector} from 'react-redux';
+import {getSampleData} from '../../Redux/Actions';
+import {useDispatch} from 'react-redux';
 import {authStyles} from './AuthStyles';
 
 const LoginScreen = ({navigation}) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSampleData());
-    dispatch(isUserLoggedIn(true));
   }, [dispatch]);
   return (
     <SafeAreaView style={authStyles.safeAreaContainer}>
