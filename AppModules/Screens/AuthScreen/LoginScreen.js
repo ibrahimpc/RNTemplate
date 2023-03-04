@@ -1,19 +1,35 @@
 import React, {useEffect} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import {getSampleData} from '../../Redux/Actions';
-import {useDispatch} from 'react-redux';
+import {
+  Text,
+  TouchableOpacity,
+  TextInput,
+  KeyboardAvoidingView,
+  SafeAreaView,
+} from 'react-native';
+import {getSampleData, isUserLoggedIn} from '../../Redux/Actions';
+import {useDispatch, useSelector} from 'react-redux';
+import {authStyles} from './AuthStyles';
 
 const LoginScreen = ({navigation}) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSampleData());
-  }, []);
+    dispatch(isUserLoggedIn(true));
+  }, [dispatch]);
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <TouchableOpacity onPress={() => navigation.navigate('Otp Screen')}>
-        <Text>login screen</Text>
-      </TouchableOpacity>
-    </View>
+    <SafeAreaView style={authStyles.safeAreaContainer}>
+      <KeyboardAvoidingView style={authStyles.mainContainer} behavior="height">
+        <TextInput
+          style={authStyles.textInput}
+          placeholder={'Enter Your Mobile Number'}
+        />
+        <TouchableOpacity
+          onPress={() => navigation.navigate('OTP Screen')}
+          style={authStyles.submitButton}>
+          <Text style={authStyles.submitButtonText}>Submit</Text>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 };
 export default LoginScreen;

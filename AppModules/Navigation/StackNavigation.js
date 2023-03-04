@@ -8,6 +8,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ExpenseScreen from '../Screens/MainScreen/ExpenseScreen';
 import SettingsScreen from '../Screens/MainScreen/SettingsScreen';
 import ReportScreen from '../Screens/MainScreen/ReportScreen';
+import {useSelector} from 'react-redux';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,17 +16,10 @@ const LoginStack = () => {
   return (
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Login Screen" component={LoginScreen} />
-      <Stack.Screen name="Otp Screen" component={OTPScreen} />
+      <Stack.Screen name="OTP Screen" component={OTPScreen} />
     </Stack.Navigator>
   );
 };
-// const HomeStack = () => {
-//   return (
-//     <Stack.Navigator initialRouteName="Home">
-//       <Stack.Screen name="homeScreen" component={HomeScreen} />
-//     </Stack.Navigator>
-//   );
-// };
 
 const Tab = createBottomTabNavigator();
 const HomeTabStack = () => {
@@ -40,11 +34,10 @@ const HomeTabStack = () => {
 };
 
 const Navigation = () => {
+  const userLoggedIn = useSelector(state => state?.isUserLoggedIn);
   return (
     <NavigationContainer>
-      <LoginStack />
-      {/*<HomeStack />*/}
-      {/*<HomeTabStack />*/}
+      {!userLoggedIn ? <LoginStack /> : <HomeTabStack />}
     </NavigationContainer>
   );
 };

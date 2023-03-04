@@ -1,11 +1,35 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  KeyboardAvoidingView,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
+import {useDispatch} from 'react-redux';
+import {isUserLoggedIn} from '../../Redux/Actions';
+import {authStyles} from './AuthStyles';
+const OTPScreen = ({navigation}) => {
+  const dispatch = useDispatch();
 
-const OTPScreen = () => {
+  const handleVerifyOtp = () => {
+    dispatch(isUserLoggedIn(true));
+  };
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>login screen</Text>
-    </View>
+    <SafeAreaView style={authStyles.safeAreaContainer}>
+      <KeyboardAvoidingView style={authStyles.mainContainer} behavior="height">
+        <TextInput
+          style={authStyles.textInput}
+          placeholder={'Enter Your Mobile Number'}
+        />
+        <TouchableOpacity
+          onPress={handleVerifyOtp}
+          style={authStyles.submitButton}>
+          <Text style={authStyles.submitButtonText}>Submit OTP</Text>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 };
 export default OTPScreen;
