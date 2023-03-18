@@ -19,7 +19,7 @@ export const authStyles = {
   submitButton: {
     width: 100,
     height: 40,
-    backgroundColor: '#3786ff',
+    backgroundColor: '#4285F4',
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 15,

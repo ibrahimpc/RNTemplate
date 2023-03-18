@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "803290475337",
+    "project_id": "rntemplate-451a0",
+    "storage_bucket": "rntemplate-451a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803290475337:android:3680d98124bab8eca1c898",
+        "android_client_info": {
+          "package_name": "com.rntemplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "803290475337-9ri65seg31v55n85olrkn1gv1ruqnlm0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3okSwFQwx8Fif-4mVrkMtE8ECbYME-5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "803290475337-9ri65seg31v55n85olrkn1gv1ruqnlm0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "803290475337-3nu9rb22d60d50h7gfp794er4a2ovus6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rntemplate"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
