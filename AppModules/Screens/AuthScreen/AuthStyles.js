@@ -15,6 +15,7 @@ export const authStyles = {
     borderBottomColor: 'grey',
     borderBottomWidth: 1,
     padding: 10,
+    color: 'black',
   },
   submitButton: {
     width: 100,
